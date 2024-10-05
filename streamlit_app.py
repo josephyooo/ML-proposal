@@ -49,6 +49,68 @@ st.header("Results and Discussion")
 
 st.markdown(markdown_text4, unsafe_allow_html=True)
 
+# Create a table using Markdown
+st.markdown("""
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Proposal Contribution</th>
+    </tr>
+    <tr>
+        <td><strong>Maximus Genio</strong></td>
+        <td>
+            Video/Slide Deck creation, 
+            1 ML Algorithm, 
+            1 Data Preprocessing Method, 
+            a piece of literature, 
+            and data quality metric
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Joseph Yoo</strong></td>
+        <td>
+            1 Literature source, 
+            Corresponding Reference, 
+            1 Data preprocessing algorithm, 
+            1 ML algorithm/model, 
+            and 1 Qualitative Metric
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Ryan He</strong></td>
+        <td>
+            Introduction/Background, 
+            Problem Definement, 
+            1 ML algorithm and 2 data preprocessing method, 
+            1 Quality metric, 
+            and 1 Piece of Literature, 
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Hussein Rmaile</strong></td>
+        <td>
+            1 Literature source, 
+            Corresponding Reference, 
+            Data preprocessing algorithms, 
+            ML algorithms/regression models, 
+            and 3 Qualitative Metrics
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Daniel Pan</strong></td>
+        <td>
+            1 Literature source, 
+            1 Data Preprocessing Method, 
+            1 Algorithm, 
+            and Streamlit page creation
+        </td>
+    </tr>
+</table>
+""", unsafe_allow_html=True)
+
+st.image("images/GANTT TABLE.png", caption="Current contributions for Phase 1, changes may be applied for future dates")
+
+
 st.header("References")
 
 markdown_text5 = f"""
@@ -60,6 +122,8 @@ markdown_text6 = f"""
 markdown_text7 = f"""
 [3]	J. Manasa, R. Gupta, and N. S. Narahari, “Machine Learning based Predicting House Prices using Regression Techniques,” IEEE Xplore, Mar. 01, 2020. https://ieeexplore.ieee.org/abstract/document/9074952/ (accessed Aug. 09, 2021).
 """
+
+
 
 st.markdown(markdown_text5, unsafe_allow_html=True)
 st.markdown(markdown_text6, unsafe_allow_html=True)
