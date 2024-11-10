@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("ML Proposal Group - 96")
+st.title("ML Midterm Checkpoint - Group 96")
 
 st.header("Introduction/Background")
 # Create the markdown text with a hyperlink for the specific phrase
@@ -27,89 +27,95 @@ st.markdown(markdown_text2, unsafe_allow_html=True)
 st.header("Methods")
 
 markdown_text3 = f"""
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We will apply 3 data preprocessing techniques. Feature encoding, one-hot encoding or label encoding, will convert categorical data, such as building type and sale condition, into usable numerical representations. Data normalization (Min/Max scaling) will standardize continuous variables like lot area. Additionally, dimensionality reduction through feature selection and Principal Component Analysis (PCA) will remove irrelevant or redundant features to improve model generalization.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The 3 primary methods of data-preprocessing that we use are one-hot encoding, recursive feature elimination, and standardization to filter through the data. One-hot encoding helps in representing categories independent of relationships between the data, such as price and square feet. Recursive feature elimination helps to only focus on only relevant features, reducing the possibility of having the model overfit, and instead keeping important details. Afterwards, standardizing the resulting information to a uniform scale with a mean of 0 and a standard deviation of 1 improves the model's stability and disallowing large features from skewing the optimization process.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For our house price prediction, we propose 3 ML models:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The machine learning algorithm that we use is linear regression, since the relationship between house prices and the features that the house are often linear. This provides a model that displays the different coefficients and factors that affect the price, and how much impact they have. Furthermore, linear regression is also computationally efficient and can handle large datasets, so the vast amount of housing data that is available can be easily sifted through.
 
-- **_Linear Regression_** will serve as a baseline, offering interpretability and fast training.
-- **_Random Forest_** will handle complex, non-linear relationships and provide feature importance ranking, giving insight into significant variables like location or house size.
-- **_Attention_** will emphasize the most critical features by dynamically adjusting attention weights, improving predictive accuracy.
-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In summary, the combination of the data-preprocessing methods of one-hot encoding to represent individual categories, recursive feature limination to focus on relevant features, and standardization to have a uniform scale for the data, and linear regression to yield predictive results, are methods that are very good to analyze and predict house prices and factors that affect that price.
 """
 
 st.markdown(markdown_text3, unsafe_allow_html=True)
 
-markdown_text4 = f"""
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We will evaluate models R-squared (R²), Mean Squared Error (MSE), and Mean Absolute Percentage Error (MAPE). R² measures how well the model explains house price variance, with Random Forest and Attention expected to outperform Linear Regression due to their ability to capture complex relationships. MSE will assess the accuracy of predictions by penalizing larger errors, with Random Forest expected to have lower MSE than Linear Regression, as it better handles non-linear patterns. Attention should further reduce MSE by focusing on the most important features. MAPE will provide insights into the relative prediction errors across different price ranges. Linear Regression may struggle with outliers, while Random Forest and Attention are anticipated to perform better due to their capacity for handling diverse data. Overall, Attention is expected to deliver the best results, with the lowest MSE and MAPE, and the highest R².
-We expect Random Forest to outperform Linear Regression due to its ability to capture feature interactions, while Attention will further enhance performance by prioritizing important features. Our goal is to create models that provide accurate price predictions to assist real estate stakeholders in making informed decisions. This project addresses sustainability and ethical implications by highlighting the role of accurate predictions in promoting responsible real estate practices. Considerations will be made regarding data privacy and the potential biases in machine learning models.
-
-"""
-
 st.header("Results and Discussion")
 
-st.markdown(markdown_text4, unsafe_allow_html=True)
+st.image("images/visualization.png")
 
-# Create a table using Markdown
+markdown_text3 = f"""
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;From this plot visualization of the resulting data, the residuals are centered around the red dotted zero line, indicating that the model's predictions are unbiased and do not contain over/under prediction. The y-axis scale being values extremely close to 0 also indicate that the randomness of the majority of the points do not create a pattern and the residuals being consistent across all predicted values.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;However, there are some outlier points that may indicate that could negatively affect the model, but because of randomness in house prices and the quantifiable data like square feet, this could serve to be major exception and are not commonly found in real life beyond possibly 1 or 2 instances. As such, some next steps and ways to address the outliers could be to simply remove them from the data for their exceedingly rare occurrence in the real world, or to implement model regularization to penalize large coefficients and making the model less sensitive to their impact.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Moving forward, we plan to implement two other methods, of Random Forest as a test on non-linear relationships and Attention to emphasize critical features by dynamically adjusting weights.
+"""
+
+st.markdown(markdown_text3, unsafe_allow_html=True)
 st.markdown("""
 <table>
     <tr>
         <th>Name</th>
-        <th>Proposal Contribution</th>
+        <th>Midterm Checkout Contribution</th>
     </tr>
     <tr>
         <td><strong>Maximus Genio</strong></td>
         <td>
-            Video/Slide Deck creation, 
-            1 ML Algorithm, 
-            1 Data Preprocessing Method, 
-            a piece of literature, 
-            and data quality metric
+            &nbsp;
         </td>
     </tr>
     <tr>
         <td><strong>Joseph Yoo</strong></td>
         <td>
-            1 Literature source, 
-            Corresponding Reference, 
-            1 Data preprocessing algorithm, 
-            1 ML algorithm/model, 
-            and 1 Qualitative Metric
+            &nbsp;
         </td>
     </tr>
     <tr>
         <td><strong>Ryan He</strong></td>
         <td>
-            Introduction/Background, 
-            Problem Definement, 
-            1 ML algorithm and 2 data preprocessing method, 
-            1 Quality metric, 
-            and 1 Piece of Literature, 
+            <ul>
+                <li>5 preprocessing methods
+                    <ul>
+                        <li>One-Hot encoding</li>
+                        <li>Imputations of missing data</li>
+                        <li>Standardizing</li>
+                        <li>Min-Maxing data values</li>
+                        <li>RFE</li>
+                        <li>Creation of higher dimensional features</li>
+                    </ul>
+                </li>
+                <li>Machine Learning Algorithm
+                    <ul>
+                        <li>Linear regression</li>
+                    </ul>
+                </li>
+                <li>Evaluation Metrics
+                    <ul>
+                        <li>RMSE</li>
+                    </ul>
+                </li>
+                <li>Visualization
+                    <ul>
+                        <li>Frequency of DataPrice distribution</li>
+                        <li>Residuals vs. Predicted value plot (standardized)</li>
+                    </ul>
+                </li>
+            </ul>
         </td>
     </tr>
     <tr>
         <td><strong>Hussein Rmaile</strong></td>
         <td>
-            1 Literature source, 
-            Corresponding Reference, 
-            Data preprocessing algorithms, 
-            ML algorithms/regression models, 
-            and 3 Qualitative Metrics
+            &nbsp;
         </td>
     </tr>
     <tr>
         <td><strong>Daniel Pan</strong></td>
         <td>
-            1 Literature source, 
-            1 Data Preprocessing Method, 
-            1 Algorithm, 
-            and Streamlit page creation
+            Analysis and discussion on visualization results,
+            written summary on method implementation,
+            Streamlit page setup,
         </td>
     </tr>
 </table>
 """, unsafe_allow_html=True)
-
-st.image("images/GANTT TABLE.png", caption="Current contributions for Phase 1, changes may be applied for future dates")
-
 
 st.header("References")
 
@@ -136,4 +142,3 @@ st.markdown('''
 }
 </style>
 ''', unsafe_allow_html=True)
-
