@@ -27,7 +27,10 @@ st.markdown(markdown_text2, unsafe_allow_html=True)
 st.header("Methods")
 
 markdown_text3 = f"""
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The 3 primary methods of data-preprocessing that we use are one-hot encoding, recursive feature elimination, and standardization to filter through the data. One-hot encoding helps in representing categories independent of relationships between the data, such as price and square feet. Recursive feature elimination helps to only focus on only relevant features, reducing the possibility of having the model overfit, and instead keeping important details. Afterwards, standardizing the resulting information to a uniform scale with a mean of 0 and a standard deviation of 1 improves the model's stability and disallowing large features from skewing the optimization process.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The primary methods of data preprocessing that we use include one-hot encoding, feature engineering with polynomial features, recursive feature elimination (RFE), and standardization to filter through the data. One-hot encoding helps in representing categories independently, allowing variables like price and square feet to be represented without implying relationships between them. Feature engineering with polynomial features involves creating interaction terms between existing features, enabling the model to capture more complex relationships within the data. Recursive feature elimination then helps to select only the most relevant features, ensuring that unnecessary or redundant interactions do not cause overfitting while retaining essential information. This was especially important to use since an estimated 46000 features were generated, so eliminating a majority of them is necessary. Finally, standardizing the resulting features to a uniform scale, with a mean of 0 and a standard deviation of 1, enhances the model's stability by preventing large features from skewing the optimization process.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In order to find the optimal value for RFE, we implemented grid search since it searches through a set of parameters to find a value that gives us the best performance. However, due to long runtimes of each iteration being exceedingly long, our grid search was smaller with bigger steps, with values being tested of `500`, `600`, `700`, `725`, `750`,  `775`, `800`, `825`, `850`, `875`, `900`, `1000`, `1100`, and `1200`.
+
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The machine learning algorithm that we use is linear regression, since the relationship between house prices and the features that the house are often linear. This provides a model that displays the different coefficients and factors that affect the price, and how much impact they have. Furthermore, linear regression is also computationally efficient and can handle large datasets, so the vast amount of housing data that is available can be easily sifted through.
 
@@ -41,7 +44,9 @@ st.header("Results and Discussion")
 st.image("images/visualization.png")
 
 markdown_text3 = f"""
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;From this plot visualization of the resulting data, the residuals are centered around the red dotted zero line, indicating that the model's predictions are unbiased and do not contain over/under prediction. The y-axis scale being values extremely close to 0 also indicate that the randomness of the majority of the points do not create a pattern and the residuals being consistent across all predicted values.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;From the previous list of RFE values listed that we used, we found that lower values like `500` were underfitting, `1200` was overfitting with a magnitude of `~1,000,000,000`, while still giving a RMSE value of ~`0.017`.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In this plot visualization of the resulting data, the residuals are centered around the red dotted zero line, indicating that the model's predictions are unbiased and do not contain over/under prediction. The y-axis scale being values extremely close to 0 also indicate that the randomness of the majority of the points do not create a pattern and the residuals being consistent across all predicted values.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;However, there are some outlier points that may indicate that could negatively affect the model, but because of randomness in house prices and the quantifiable data like square feet, this could serve to be major exception and are not commonly found in real life beyond possibly 1 or 2 instances. As such, some next steps and ways to address the outliers could be to simply remove them from the data for their exceedingly rare occurrence in the real world, or to implement model regularization to penalize large coefficients and making the model less sensitive to their impact.
 
@@ -54,18 +59,6 @@ st.markdown("""
     <tr>
         <th>Name</th>
         <th>Midterm Checkout Contribution</th>
-    </tr>
-    <tr>
-        <td><strong>Maximus Genio</strong></td>
-        <td>
-            &nbsp;
-        </td>
-    </tr>
-    <tr>
-        <td><strong>Joseph Yoo</strong></td>
-        <td>
-            &nbsp;
-        </td>
     </tr>
     <tr>
         <td><strong>Ryan He</strong></td>
@@ -101,9 +94,11 @@ st.markdown("""
         </td>
     </tr>
     <tr>
-        <td><strong>Hussein Rmaile</strong></td>
+        <td><strong>Maximus Genio</strong></td>
         <td>
-            &nbsp;
+            Preprocessing & algorithm validation,
+            Summary validation,
+            and Additional evaluation metrics (needs fixing R^2, Adjusted R^2)
         </td>
     </tr>
     <tr>
@@ -112,6 +107,18 @@ st.markdown("""
             Analysis and discussion on visualization results,
             written summary on method implementation,
             Streamlit page setup,
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Joseph Yoo</strong></td>
+        <td>
+            &nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Hussein Rmaile</strong></td>
+        <td>
+            &nbsp;
         </td>
     </tr>
 </table>
