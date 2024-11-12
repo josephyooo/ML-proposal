@@ -16,7 +16,7 @@ markdown_text1 = f"""
 st.markdown(markdown_text1, unsafe_allow_html=True)
 
 
-st.header("Problem Definement")
+st.header("Problem Definition")
 
 markdown_text2 = f"""
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The objective of this project is to develop 3 machine learning models that can predict the **SalePrice** of a house based on various features provided in the dataset. Accurate house price prediction is important for financial decision-making and investment planning. The problem lies in identifying the best model and preprocessing techniques to capture the underlying patterns in the data. This project aims to explore multiple machine learning algorithms to create an accurate predictive model.
@@ -36,28 +36,40 @@ markdown_text3 = f"""
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In order to find the optimal value for RFE, we implemented grid search since it searches through a set of parameters to find a value that gives us the best performance. However, due to long runtimes of each iteration being exceedingly long, our grid search was smaller with bigger steps, with values being tested of `500`, `600`, `700`, `725`, `750`,  `775`, `800`, `825`, `850`, `875`, `900`, `1000`, `1100`, and `1200`.
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The machine learning algorithm that we use is linear regression, since the relationship between house prices and the features that the house are often linear. This provides a model that displays the different coefficients and factors that affect the price, and how much impact they have. Furthermore, linear regression is also computationally efficient and can handle large datasets, so the vast amount of housing data that is available can be easily sifted through.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We used a number of linear algorithms to model our problem because the relationship between house prices and the features that the house are often linear and linear algorithms are computationally efficient and can handle large datasets, so the vast amount of housing data that is available can be easily sifted through. These algorithms included Linear Regression, Lasso Regression, Ridge Regression, Elastic Net, and Linear Support Vector Regression.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In summary, the combination of the data-preprocessing methods of one-hot encoding to represent individual categories, recursive feature limination to focus on relevant features, and standardization to have a uniform scale for the data, and linear regression to yield predictive results, are methods that are very good to analyze and predict house prices and factors that affect that price.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Linear regression provides a model that displays the different coefficients and factors that affect the price, and how much impact they have. Lasso and Ridge Regression are similar to Linear Regression but with an L2 and L1 regularization term, respectively. Elastic Net is a model that uses a combines both L2 and L1 regularization, being a balance between Lasso and Ridge Regression. Finally, Linear SVR is a variant of SVR that uses a linear kernel.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In summary, the combination of the data-preprocessing methods of one-hot encoding to represent individual categories, recursive feature limination to focus on relevant features, and standardization to have a uniform scale for the data, and linear algorithms to yield predictive results, are methods that are very good to analyze and predict house prices and factors that affect that price.
 """
 
 st.markdown(markdown_text3, unsafe_allow_html=True)
 
 st.header("Results and Discussion")
 
-st.image("images/visualization.png")
-
 markdown_text3 = f"""
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;From the previous list of RFE values listed that we used, we found that lower values like `500` were underfitting, `1200` was overfitting with a magnitude of `~1,000,000,000`, while still giving a RMSE value of ~`0.017`. Due to it being house prices, an RFE value of `775` gives a value `~400` features, resulting in RMSE being around `0.5%`, well within the bounds of acceptable error.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In this plot visualization of the resulting data, the residuals are centered around the red dotted zero line, indicating that the model's predictions are unbiased and do not contain over/under prediction. The y-axis scale being values extremely close to 0 also indicate that the randomness of the majority of the points do not create a pattern and the residuals being consistent across all predicted values.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In the following Residuals vs Predicted visualizations, the residuals should be centered around the red dotted zero line, indicating that the model's predictions are unbiased and do not contain over/under prediction. The y-axis scale being values extremely close to 0 also indicate that the randomness of the majority of the points do not create a pattern and the residuals being consistent across all predicted values.
+"""
+st.markdown(markdown_text3, unsafe_allow_html=True)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;However, there are some outlier points that may indicate that could negatively affect the model, but because of randomness in house prices and the quantifiable data like square feet, this could serve to be major exception and are not commonly found in real life beyond possibly 1 or 2 instances. As such, some next steps and ways to address the outliers could be to simply remove them from the data for their exceedingly rare occurrence in the real world, or to implement model regularization to penalize large coefficients and making the model less sensitive to their impact.
+st.image("images/linreg.png")
+st.image("images/lasreg.png")
+st.image("images/ridreg.png")
+st.image("images/elanet.png")
+st.image("images/linsvr.png")
+
+markdown_text4 = """
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Of the five models, Lasso Regression performed the best with a test RMSE of 6.459e-4. In a close second, Linear SVR had a test RMSE of 9.052e-4.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;There were outlier points that could negatively affect the model, but because of randomness in house prices and the quantifiable data like square feet, this could serve to be major exception and are not commonly found in real life beyond possibly 1 or 2 instances. As such, some next steps and ways to address the outliers could be to simply remove them from the data for their exceedingly rare occurrence in the real world, or to implement model regularization to penalize large coefficients and making the model less sensitive to their impact.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Moving forward, we plan to implement two other methods, of Random Forest as a test on non-linear relationships and Attention to emphasize critical features by dynamically adjusting weights.
 """
 
-st.markdown(markdown_text3, unsafe_allow_html=True)
+
+st.markdown(markdown_text4, unsafe_allow_html=True)
 st.markdown("""
 <table>
     <tr>
@@ -116,7 +128,7 @@ st.markdown("""
     <tr>
         <td><strong>Joseph Yoo</strong></td>
         <td>
-            &nbsp;
+            Discussion on results, additional linear modeling algorithms (Lasso Regression, Ridge Regression, Elastic Net, and Linear SVR), and brief description of linear methods
         </td>
     </tr>
     <tr>
